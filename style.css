@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+/*===================================
+A: Mobile
+  1. Global styles
+  2. Typography
+  3. Layout
+  4. Styling Components
+B: max-width: 300px
+  3. Layout
+C: min-width: 700px
+  3. Layout
+D: min-width: 1120px, min-height: 1000px
+  2. Typography
+  3. Layout
+E: min-height: 1000px
+  3. Layout
+===================================*/
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+            A: Mobile
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*--------- 1. Global Styles ---------*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  /*PRIMARY*/
+  --cyan: hsl(179, 62%, 43%);
+  --soft-cyan: hsl(179, 47%, 52%);
+  --bright-yellow: hsl(71, 73%, 54%);
+  /*NEUTRAL*/
+  --light-gray: hsl(204, 43%, 93%);
+  --grayish-blue: hsl(218, 22%, 67%);
+  font-family: 'Karla', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--light-gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*------------  2. Typography ------------*/
+.sub_section, .why_section {
+  color: white;
+}
+
+h1 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.join_section h1 {
+  font-size: 1.3rem;
+  color: var(--cyan);
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.join_section h2 {
+  color: var(--bright-yellow);
+}
+
+.sub_section h2 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.sub_section h2 span {
+  margin-left: 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  opacity: 0.5;
+}
+
+p {
+  font-size: 0.8rem;
+  line-height: 1.4rem;
+  font-weight: 400;
+}
+
+.join_section p {
+  color: var(--grayish-blue);
+  max-width: 60ch;
+}
+
+.sub_section p {
+  font-size: 0.9rem;
+}
+
+.sub_section button p {
+  color: white;
+  font-weight: 700;
+}
+
+.whys p {
+  opacity: 0.6;
+}
+
+p.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--cyan);
+}
+
+/*----------- 3. Layout -----------*/
+main {
+  width: 80vw;
+  margin: 4rem 0;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 2rem 0.1rem rgba(0, 0, 0, 0.1);
+}
+
+section {
+  padding: 1.8rem;
+  height: 16rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.join_section {
+  background: white;
+}
+
+.sub_section {
+  background: var(--cyan);
+}
+
+.why_section {
+  background: var(--soft-cyan);
+}
+
+footer {
+  margin: auto auto 0.5rem auto;
+}
+
+/*----------- 4. Styling components -----------*/
+button {
+  background: var(--bright-yellow);
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.8rem 0;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0.5rem 0.5rem 1rem 0.1rem rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background: hsl(71, 83%, 57%);
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        B: max-width: 300px
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media screen and (max-width: 300px) {
+
+  /*----------- 3. Layout -----------*/
+  section {
+    height: 18rem;
+  }
+
+  .join_section {
+    height: 20rem;
+  }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        C: min-width: 700px
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media screen and (min-width: 700px) {
+
+  /*----------- 3. Layout -----------*/
+  main {
+    width: 50vw;
+  }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+D: min-width: 1120px, min-height: 1000px
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media screen and (min-width: 1120px), (min-height: 1000px) {
+
+  /*------------  2. Typography ------------*/
+  .join_section h1 {
+    font-size: 1.5rem;
+  }
+
+  .join_section h2 {
+    font-size: 1.1rem;
+  }
+
+  .join_section p {
+    font-size: 0.9rem;
+  }
+
+  .whys p {
+    line-height: 1.1rem;
+  }
+
+  /*----------- 3. Layout -----------*/
+  main {
+    width: 40vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 12rem 15rem;
+    grid-template-areas: "join join"
+      "sub  why";
+  }
+
+  section {
+    height: auto;
+  }
+
+  .join_section {
+    grid-area: join;
+  }
+
+  .sub_section {
+    grid-area: sub;
+  }
+
+  .why_section {
+    grid-area: why;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+      E: min-height: 1000px
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media screen and (min-height: 1000px) {
+
+  /*----------- 3. Layout -----------*/
+  main {
+    width: 60vw;
+  }
+}
